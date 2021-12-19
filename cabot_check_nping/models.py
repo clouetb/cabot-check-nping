@@ -27,7 +27,7 @@ class NPINGStatusCheck(StatusCheck):
     def _run(self):
         regex = r".+Lost: ([0-9]+).*"
         result = StatusCheckResult(status_check=self)
-        args = ['nping'] + str(self.nping_cmd_line_switches).split() + ['-c', int(self.count)] + str(self.host).split()
+        args = ['nping'] + str(self.nping_cmd_line_switches).split() + ['-c', str(self.count)] + str(self.host).split()
         lost_count = 0
         try:
             # We redirect stderr to STDOUT because ping can write to both, depending on the kind of error.
