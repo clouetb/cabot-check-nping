@@ -13,9 +13,11 @@ class NPINGStatusCheck(StatusCheck):
     icon_class = 'glyphicon-import'
     host = models.TextField(
         help_text='Host to check.',
+        verbose_name="Target host(s)"
     )
     nping_cmd_line_switches = models.TextField(
-        help_text='Enter switches as they vould be entered on the command line.'
+        help_text='Enter switches as they vould be entered on the command line.',
+        verbose_name="NPing command line switches"
     )
 
     count = models.PositiveIntegerField(
