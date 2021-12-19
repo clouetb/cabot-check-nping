@@ -10,12 +10,13 @@ class NPINGStatusCheck(StatusCheck):
     check_name = 'nping'
     edit_url_name = f'update-{check_name}-check'
     duplicate_url_name = f'duplicate-{check_name}-check'
-    icon_class = 'glyphicon-random'
+    icon_class = 'glyphicon-import'
     host = models.TextField(
         help_text='Host to check.',
     )
     nping_cmd_line_switches = models.TextField(
-        help_text='NPing command line switches.',
+        help_text='Enter switches as they vould be entered on the command line.',
+        name="NPing command line switches"
     )
 
     count = models.PositiveIntegerField(
