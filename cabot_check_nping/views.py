@@ -1,11 +1,10 @@
 from django import forms
-from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from cabot.cabotapp.models import StatusCheck
 from cabot.cabotapp.views import (CheckCreateView, CheckUpdateView,
                                   StatusCheckForm, base_widgets)
-
 from .models import NPINGStatusCheck
 
 

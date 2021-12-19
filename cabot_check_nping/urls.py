@@ -6,15 +6,15 @@ from .views import (NPINGCheckCreateView, NPINGCheckUpdateView,
 urlpatterns = [
 
     re_path(r'^npingcheck/create/',
-        view=NPINGCheckCreateView.as_view(),
-        name='create-nping-check'),
+            view=NPINGCheckCreateView.as_view(),
+            name='create-nping-check'),
 
     re_path(r'^npingcheck/update/(?P<pk>\d+)/',
-        view=NPINGCheckUpdateView.as_view(),
-        name='update-nping-check'),
+            view=NPINGCheckUpdateView.as_view(),
+            name='update-nping-check'),
 
     re_path(r'^npingcheck/duplicate/(?P<pk>\d+)/',
-        view=duplicate_check,
-        name='duplicate-nping-check')
+            view=duplicate_check,
+            name='duplicate-nping-check')
 
 ]
