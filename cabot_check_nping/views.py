@@ -32,7 +32,7 @@ class NPINGStatusCheckForm(StatusCheckForm):
             }),
             'nping_cmd_line_switches': forms.TextInput(attrs={
                 'style': 'width: 100%',
-                'placeholder': '--icmp',
+                'placeholder': 'ex. --icmp',
             })
         })
 
