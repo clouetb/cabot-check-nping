@@ -15,8 +15,7 @@ class NPINGStatusCheck(StatusCheck):
         help_text='Host to check.',
     )
     nping_cmd_line_switches = models.TextField(
-        help_text='Enter switches as they vould be entered on the command line.',
-        name="NPing command line switches"
+        help_text='Enter switches as they vould be entered on the command line.'
     )
 
     count = models.PositiveIntegerField(
