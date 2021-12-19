@@ -28,11 +28,11 @@ class NPINGStatusCheckForm(StatusCheckForm):
         widgets.update({
             'host': forms.TextInput(attrs={
                 'style': 'width: 100%',
-                'placeholder': 'service.arachnys.com',
+                'placeholder': 'Can be several hosts separated by space',
             }),
             'nping_cmd_line_switches': forms.TextInput(attrs={
                 'style': 'width: 100%',
-                'placeholder': 'service.arachnys.com',
+                'placeholder': '--icmp',
             })
         })
 
