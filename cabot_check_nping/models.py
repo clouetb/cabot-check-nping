@@ -25,6 +25,10 @@ class NPINGStatusCheck(StatusCheck):
         default=1
     )
 
+    @property
+    def check_category(self):
+        return "NPing Check"
+
     def _run(self):
         regex = r".+Lost: ([0-9]+).*"
         result = StatusCheckResult(status_check=self)
