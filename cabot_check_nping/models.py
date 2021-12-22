@@ -10,7 +10,7 @@ class NPINGStatusCheck(StatusCheck):
     check_name = 'nping'
     edit_url_name = f'update-{check_name}-check'
     duplicate_url_name = f'duplicate-{check_name}-check'
-    icon_class = 'import'
+    icon_class = 'glyphicon glyphicon-import'
     host = models.TextField(
         help_text='Host to check.',
         verbose_name="Target host(s)"
