@@ -7,22 +7,18 @@ from cabot.cabotapp.models import StatusCheck, StatusCheckResult
 
 
 class NPINGStatusCheck(StatusCheck):
-    check_name = 'nping'
-    edit_url_name = f'update-{check_name}-check'
-    duplicate_url_name = f'duplicate-{check_name}-check'
-    icon_class = 'glyphicon glyphicon-import'
-    host = models.TextField(
-        help_text='Host to check.',
-        verbose_name="Target host(s)"
-    )
+    check_name = "nping"
+    edit_url_name = f"update-{check_name}-check"
+    duplicate_url_name = f"duplicate-{check_name}-check"
+    icon_class = "glyphicon glyphicon-import"
+    host = models.TextField(help_text="Host to check.", verbose_name="Target host(s)")
     nping_cmd_line_switches = models.TextField(
-        help_text='Enter switches as they vould be entered on the command line.',
-        verbose_name="NPing command line switches"
+        help_text="Enter switches as they vould be entered on the command line.",
+        verbose_name="NPing command line switches",
     )
 
     count = models.PositiveIntegerField(
-        help_text='Number of packet to send.',
-        default=1
+        help_text="Number of packet to send.", default=1
     )
 
     @property
@@ -32,7 +28,12 @@ class NPINGStatusCheck(StatusCheck):
     def _run(self):
         regex = r".+Lost: ([0-9]+).*"
         result = StatusCheckResult(status_check=self)
-        args = ['nping'] + str(self.nping_cmd_line_switches).split() + ['-c', str(self.count)] + str(self.host).split()
+        args = (
+            ["nping"]
+            + str(self.nping_cmd_line_switches).split()
+            + ["-c", str(self.count)]
+            + str(self.host).split()
+        )
         lost_count = 0
         try:
             # We redirect stderr to STDOUT because ping can write to both, depending on the kind of error.
@@ -51,7 +52,7 @@ class NPINGStatusCheck(StatusCheck):
 
         except subprocess.CalledProcessError as e:
             result.succeeded = False
-            result.error = f'Error occurred while executing NPing: {e.message}'
+            result.error = f"Error occurred while executing NPing: {e.message}"
             result.raw_data = e.output
 
         return result
