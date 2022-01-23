@@ -13,7 +13,7 @@ from .models import NPINGStatusCheck
 
 
 class NPINGStatusCheckForm(StatusCheckForm):
-    symmetrical_fields = ("service_set", "instance_set")
+    symmetrical_fields = ("service_set", "instance_set", "target_workers")
 
     class Meta:
         model = NPINGStatusCheck
